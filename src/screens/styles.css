@@ -70,3 +70,11 @@
     height: 19px;
     padding: 2px 8px;
 }
+
+.task {
+    display: flex;
+    background-color: var(--gray-500);
+    padding: 16px;
+    justify-content: space-evenly;
+    font-size: var(--font-size-sm);
+}

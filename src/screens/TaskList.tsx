@@ -25,11 +25,11 @@ export default function TaskList(){
                 </div>
 
                 <div className="task">
-                    <button></button>
+                    <a><img alt="Radio type check"></img></a>
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium doloremque commodi officiis incidunt in voluptatibus. Quos possimus, quidem veritatis velit temporibus, iure quae delectus rem ad nam deleniti pariatur.
                     </p>
-                    <button></button>
+                    <a><img alt="Trash can"></img></a>
                 </div>
             </div>
         </>
