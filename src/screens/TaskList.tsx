@@ -26,6 +26,11 @@ export default function TaskList(){
                     </div>
                 </div>
 
+                <div id="warning-message">
+                    <span>Você ainda não tem tecnologias cadastradas</span>
+                    <span>Crie tecnologia e organize seus itens a fazer</span>
+                </div>
+
                 <div className="card">
                     <button></button>
                     <p>
