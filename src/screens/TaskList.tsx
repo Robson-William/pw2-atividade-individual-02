@@ -22,7 +22,7 @@ export default function TaskList(){
                     </div>
                     <div>
                         <span id="sub-text-done">Concluídas</span>
-                        <span className="counter">0</span>
+                        <span className="counter">2 de 5</span>
                     </div>
                 </div>
 
