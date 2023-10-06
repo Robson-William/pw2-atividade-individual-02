@@ -15,7 +15,10 @@
 .input-task {
     display: flex;
     margin: auto;
+    margin-bottom: 64px;
     justify-content: center;
+    position: relative;
+    top: -27px;
     gap: 8px
 }
 
@@ -24,19 +27,22 @@
     width: 606px;
     border: 1px solid var(--Gray-700);
     border-radius: 8px;
-    padding: 16px;
+    padding: 15px;
     color: var(--gray-100);
 }
 
 .input-task button {
+    display: flex;
     background-color: var(--blue-dark);
     width: 90px;
     height: 52px;
     padding: 16px;
     border: none;
     border-radius: 8px;
+    justify-content: space-around;
+    align-items: center;
     color: var(--gray-100);
-    text-align: center;
+    font-weight: 700;
 }
 
 .task-list {
@@ -71,7 +77,7 @@
     padding: 2px 8px;
 }
 
-.task {
+.card {
     display: flex;
     background-color: var(--gray-500);
     height: 72px;
@@ -83,7 +89,7 @@
     font-size: var(--font-size-sm);
 }
 
-.task button {
+.card button {
     background-color: var(--gray-600);
     width: 17px;
     height: 17px;
@@ -92,11 +98,11 @@
     border-radius: 100%;
 }
 
-.task button:hover {
+.card button:hover {
     background-color: var(--blue-dark);
 }
 
-.task p {
+.card p {
     word-wrap: break-word;
     overflow-x:auto;
 }

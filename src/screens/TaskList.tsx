@@ -1,4 +1,5 @@
 import trashCan from "/trashCan.svg";
+import plusSign from "/plus.svg";
 import "./styles.css";
 
 export default function TaskList(){
@@ -10,7 +11,7 @@ export default function TaskList(){
 
             <div className="input-task">
                 <input type="text" placeholder="Adicione uma nova tecnologia"></input>
-                <button type="submit">Criar<span>+</span></button>
+                <button type="submit">Criar<img src={plusSign} alt="Símbolo de mais"></img></button>
             </div>
 
             <div className="task-list">
@@ -25,7 +26,7 @@ export default function TaskList(){
                     </div>
                 </div>
 
-                <div className="task">
+                <div className="card">
                     <button></button>
                     <p>
                         Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
