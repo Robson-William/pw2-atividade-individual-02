@@ -74,21 +74,29 @@
 .task {
     display: flex;
     background-color: var(--gray-500);
+    height: 72px;
     padding: 16px;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    border-radius: 8px;
+    gap: 12px;
     color: var(--gray-100);
     font-size: var(--font-size-sm);
 }
 
 .task button {
     background-color: var(--gray-600);
-    width: 24px;
-    height: 24px;
-    padding: 10px;
+    width: 17px;
+    height: 17px;
+    padding: 7px;
     border: 2px solid var(--blue);
     border-radius: 100%;
 }
 
 .task button:hover {
     background-color: var(--blue-dark);
+}
+
+.task p {
+    word-wrap: break-word;
+    overflow-x:auto;
 }

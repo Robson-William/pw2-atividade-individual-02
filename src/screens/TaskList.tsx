@@ -1,3 +1,4 @@
+import trashCan from "/trashCan.svg";
 import "./styles.css";
 
 export default function TaskList(){
@@ -27,9 +28,9 @@ export default function TaskList(){
                 <div className="task">
                     <button></button>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium doloremque commodi officiis incidunt in voluptatibus. Quos possimus, quidem veritatis velit temporibus, iure quae delectus rem ad nam deleniti pariatur.
+                        Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
                     </p>
-                    <a><img alt="Trash can"></img></a>
+                    <a><img src={trashCan} alt="Trash can"></img></a>
                 </div>
             </div>
         </>
