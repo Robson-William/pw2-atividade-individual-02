@@ -25,7 +25,7 @@ export default function TaskList(){
                 </div>
 
                 <div className="task">
-                    <a><img alt="Radio type check"></img></a>
+                    <button></button>
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium doloremque commodi officiis incidunt in voluptatibus. Quos possimus, quidem veritatis velit temporibus, iure quae delectus rem ad nam deleniti pariatur.
                     </p>

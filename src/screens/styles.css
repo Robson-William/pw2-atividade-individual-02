@@ -76,5 +76,19 @@
     background-color: var(--gray-500);
     padding: 16px;
     justify-content: space-evenly;
+    color: var(--gray-100);
     font-size: var(--font-size-sm);
+}
+
+.task button {
+    background-color: var(--gray-600);
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+    border: 2px solid var(--blue);
+    border-radius: 100%;
+}
+
+.task button:hover {
+    background-color: var(--blue-dark);
 }
