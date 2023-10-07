@@ -4,7 +4,8 @@ import { useState } from "react";
 import Tech from "../components/Tech";
 
 export default function TaskList(){
-    const [techs, setTechs] = useState<string[]>(["Fuck"]);
+    const [techList, setTechList] = useState<string[]>([]);
+    const [tech, setTech] = useState("");
 
     return (
         <>
@@ -13,8 +14,16 @@ export default function TaskList(){
             </div>
 
             <div className="input-task">
-                <input type="text" placeholder="Adicione uma nova tecnologia"></input>
-                <button type="submit">Criar<img src={plusSign} alt="Símbolo de mais"></img></button>
+                <input type="text" placeholder="Adicione uma nova tecnologia" value={tech} onChange={e => setTech(e.target.value)}></input>
+                <button type="submit"  onClick={() => {
+                    setTechList([
+                        ...techList,
+                        tech
+                    ])
+                }}>
+                    Criar
+                    <img src={plusSign} alt="Símbolo de mais"></img>
+                </button>
             </div>
 
             <div className="task-list">
@@ -29,14 +38,14 @@ export default function TaskList(){
                     </div>
                 </div>
 
-                {techs.length === 0 && (
+                {techList.length === 0 && (
                     <div id="warning-message">
                         <span>Você ainda não tem tecnologias cadastradas</span>
                         <span>Crie tecnologia e organize seus itens a fazer</span>
                     </div>
                 )}
 
-                {techs.map((tech, key=0) => (
+                {techList.map((tech, key=0) => (
                     <Tech tech={tech} key={key+1}/>
                 ))}
             </div>
