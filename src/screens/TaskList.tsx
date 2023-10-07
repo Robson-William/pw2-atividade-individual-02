@@ -1,8 +1,11 @@
 import trashCan from "/trashCan.svg";
 import plusSign from "/plus.svg";
 import "./styles.css";
+import { useState } from "react";
 
 export default function TaskList(){
+    const [techs, setTechs] = useState<string[]>(["Fuck"]);
+
     return (
         <>
             <div className="header">
@@ -26,18 +29,22 @@ export default function TaskList(){
                     </div>
                 </div>
 
-                <div id="warning-message">
-                    <span>Você ainda não tem tecnologias cadastradas</span>
-                    <span>Crie tecnologia e organize seus itens a fazer</span>
-                </div>
+                {techs.length === 0 && (
+                    <div id="warning-message">
+                        <span>Você ainda não tem tecnologias cadastradas</span>
+                        <span>Crie tecnologia e organize seus itens a fazer</span>
+                    </div>
+                )}
 
+                {techs.map((tech) => (
                 <div className="card">
                     <button></button>
                     <p>
-                        Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                        {tech}
                     </p>
                     <a><img src={trashCan} alt="Trash can"></img></a>
                 </div>
+                ))}
             </div>
         </>
     )
