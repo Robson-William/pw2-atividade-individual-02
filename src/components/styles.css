@@ -1,0 +1,29 @@
+.card {
+    display: flex;
+    background-color: var(--gray-500);
+    height: 72px;
+    padding: 16px;
+    justify-content: space-between;
+    border-radius: 8px;
+    gap: 12px;
+    color: var(--gray-100);
+    font-size: var(--font-size-md);
+}
+
+.card button {
+    background-color: var(--gray-600);
+    width: 17px;
+    height: 17px;
+    padding: 7px;
+    border: 2px solid var(--blue);
+    border-radius: 100%;
+}
+
+.card button:hover {
+    background-color: var(--blue-dark);
+}
+
+.card p {
+    word-wrap: break-word;
+    overflow-x:auto;
+}

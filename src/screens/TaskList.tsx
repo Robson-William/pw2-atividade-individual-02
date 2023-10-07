@@ -1,7 +1,7 @@
-import trashCan from "/trashCan.svg";
 import plusSign from "/plus.svg";
 import "./styles.css";
 import { useState } from "react";
+import Tech from "../components/Tech";
 
 export default function TaskList(){
     const [techs, setTechs] = useState<string[]>(["Fuck"]);
@@ -36,14 +36,8 @@ export default function TaskList(){
                     </div>
                 )}
 
-                {techs.map((tech) => (
-                <div className="card">
-                    <button></button>
-                    <p>
-                        {tech}
-                    </p>
-                    <a><img src={trashCan} alt="Trash can"></img></a>
-                </div>
+                {techs.map((tech, key=0) => (
+                    <Tech tech={tech} key={key+1}/>
                 ))}
             </div>
         </>
