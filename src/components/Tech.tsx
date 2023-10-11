@@ -8,7 +8,7 @@ type IProps = {
 export default function Tech({tech}:IProps){
     return (
         <div className="card">
-            <button></button>
+            <input type="checkbox"></input>
             <p>
                 {tech}
             </p>

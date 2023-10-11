@@ -10,16 +10,24 @@
     font-size: var(--font-size-md);
 }
 
-.card button {
+.card input {
     background-color: var(--gray-600);
     width: 17px;
     height: 17px;
     padding: 7px;
     border: 2px solid var(--blue);
     border-radius: 100%;
+    -webkit-appearance: none;
 }
 
-.card button:hover {
+.card input:checked {
+    background-color: var(--purple-dark);
+    background-image: url("/checkMark.svg");
+    background-size: cover;
+    border-color: var(--purple-dark);
+}
+
+.card input:hover {
     background-color: var(--blue-dark);
 }
 
