@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid';
+
 import plusSign from "/plus.svg";
 import "./styles.css";
 import { useState } from "react";
@@ -11,6 +13,12 @@ const mockList = [
 export default function TaskList(){
     const [techList, setTechList] = useState<Object[]>(mockList);
     const [tech, setTech] = useState("");
+
+    function handleAddTech(){
+        const newList = techList.concat({content: tech, id: uuidv4()});
+
+        setTechList(newList);
+    }
 
     function handleRemove(techToDelete:string){
         const newList = techList.filter((tech) => tech !== techToDelete);
@@ -35,6 +43,12 @@ export default function TaskList(){
         setTechList(newList);
     }
 
+    function searchDone(){
+        const done = techList.filter((tech) => tech.done === true).length;
+
+        return done;
+    }
+
     return (
         <>
             <div className="header">
@@ -43,12 +57,7 @@ export default function TaskList(){
 
             <div className="input-task">
                 <input type="text" placeholder="Adicione uma nova tecnologia" value={tech} onChange={e => setTech(e.target.value)}></input>
-                <button type="submit"  onClick={() => {
-                    setTechList([
-                        ...techList,
-                        tech
-                    ])
-                }}>
+                <button type="submit"  onClick={handleAddTech}>
                     Criar
                     <img src={plusSign} alt="Símbolo de mais"></img>
                 </button>
@@ -58,11 +67,11 @@ export default function TaskList(){
                 <div className="sub-header">
                     <div>
                         <span id="sub-text-tech">Tecnologias criadas</span>
-                        <span className="counter">0</span>
+                        <span className="counter">{techList.length}</span>
                     </div>
                     <div>
                         <span id="sub-text-done">Concluídas</span>
-                        <span className="counter">2 de 5</span>
+                        <span className="counter">{searchDone() + " de " + techList.length}</span>
                     </div>
                 </div>
 

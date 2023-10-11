@@ -2,7 +2,7 @@ import trashCan from "/trashCan.svg";
 import "./styles.css";
 
 type IProps = {
-    tech:mockList,
+    tech:any,
     id: number,
     onRemove:Function,
     onDone:Function
