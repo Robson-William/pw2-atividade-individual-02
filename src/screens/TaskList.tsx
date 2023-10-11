@@ -6,15 +6,18 @@ import { useState } from "react";
 import Tech from "../components/Tech";
 
 const mockList = [
-    { content: "lorem ipsum saksodka", done: false, id: 0 },
-    { content: "teste yay", done: true, id: 1 }
+    { content: "CSS", done: true, id: 0 },
+    { content: "REACT", done: true, id: 1 },
+    { content: "HTML", done: true, id: 2 },
+    { content: "TYPESCRIPT", done: true, id: 3 }
 ]
 
 export default function TaskList() {
     const [techList, setTechList] = useState<Object[]>(mockList);
     const [tech, setTech] = useState("");
 
-    function handleAddTech() {
+    function handleAddTech(event) {
+        event.preventDefault();
         const newList = techList.concat({ content: tech, id: uuidv4() });
 
         setTech("");
@@ -57,13 +60,13 @@ export default function TaskList() {
                 <h1>Minha Lista de Tecnologias</h1>
             </div>
 
-            <div className="input-task">
+            <form className="input-task" onSubmit={handleAddTech}>
                 <input type="text" placeholder="Adicione uma nova tecnologia" value={tech} onChange={e => setTech(e.target.value)}></input>
-                <button type="submit" onClick={handleAddTech}>
+                <button type="submit">
                     Criar
                     <img src={plusSign} alt="Símbolo de mais"></img>
                 </button>
-            </div>
+            </form>
 
             <div className="task-list">
                 <div className="sub-header">
