@@ -1,4 +1,4 @@
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import plusSign from "/plus.svg";
 import "./styles.css";
@@ -6,29 +6,29 @@ import { useState } from "react";
 import Tech from "../components/Tech";
 
 const mockList = [
-    {content: "lorem ipsum saksodka", done: false, id: 0},
-    {content: "teste yay", done: true, id: 1}
+    { content: "lorem ipsum saksodka", done: false, id: 0 },
+    { content: "teste yay", done: true, id: 1 }
 ]
 
-export default function TaskList(){
+export default function TaskList() {
     const [techList, setTechList] = useState<Object[]>(mockList);
     const [tech, setTech] = useState("");
 
-    function handleAddTech(){
-        const newList = techList.concat({content: tech, id: uuidv4()});
+    function handleAddTech() {
+        const newList = techList.concat({ content: tech, id: uuidv4() });
 
         setTechList(newList);
     }
 
-    function handleRemove(techToDelete:string){
+    function handleRemove(techToDelete: string) {
         const newList = techList.filter((tech) => tech !== techToDelete);
 
         setTechList(newList);
     }
 
-    function handleDone(id:number){
+    function handleDone(id: number) {
         const newList = techList.map((tech) => {
-            if(tech.id === id){
+            if (tech.id === id) {
                 const techDone = {
                     ...tech,
                     done: !tech.done
@@ -43,7 +43,7 @@ export default function TaskList(){
         setTechList(newList);
     }
 
-    function searchDone(){
+    function searchDone() {
         const done = techList.filter((tech) => tech.done === true).length;
 
         return done;
@@ -57,7 +57,7 @@ export default function TaskList(){
 
             <div className="input-task">
                 <input type="text" placeholder="Adicione uma nova tecnologia" value={tech} onChange={e => setTech(e.target.value)}></input>
-                <button type="submit"  onClick={handleAddTech}>
+                <button type="submit" onClick={handleAddTech}>
                     Criar
                     <img src={plusSign} alt="Símbolo de mais"></img>
                 </button>
@@ -75,16 +75,18 @@ export default function TaskList(){
                     </div>
                 </div>
 
-                {techList.length === 0 && (
-                    <div id="warning-message">
-                        <span>Você ainda não tem tecnologias cadastradas</span>
-                        <span>Crie tecnologia e organize seus itens a fazer</span>
-                    </div>
-                )}
+                <div id="list">
+                    {techList.length === 0 && (
+                        <div id="warning-message">
+                            <span>Você ainda não tem tecnologias cadastradas</span>
+                            <span>Crie tecnologia e organize seus itens a fazer</span>
+                        </div>
+                    )}
 
-                {techList.map((tech) => (
-                    <Tech tech={tech} key={tech.id} id={tech.id} onRemove={handleRemove} onDone={handleDone}/>
-                ))}
+                    {techList.map((tech) => (
+                        <Tech tech={tech} key={tech.id} id={tech.id} onRemove={handleRemove} onDone={handleDone} />
+                    ))}
+                </div>
             </div>
         </>
     )

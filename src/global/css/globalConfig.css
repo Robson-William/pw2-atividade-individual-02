@@ -1,16 +1,16 @@
 @import "themes.module.css";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #root {
-    background-color: var(--gray-600);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    font-family: var(--default-font);
+  background-color: var(--gray-600);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--default-font);
 }
