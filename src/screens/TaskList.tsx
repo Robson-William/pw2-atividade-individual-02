@@ -3,9 +3,37 @@ import "./styles.css";
 import { useState } from "react";
 import Tech from "../components/Tech";
 
+const mockList = [
+    {content: "lorem ipsum saksodka", done: false, id: 0},
+    {content: "teste yay", done: true, id: 1}
+]
+
 export default function TaskList(){
-    const [techList, setTechList] = useState<string[]>([]);
+    const [techList, setTechList] = useState<Object[]>(mockList);
     const [tech, setTech] = useState("");
+
+    function handleRemove(techToDelete:string){
+        const newList = techList.filter((tech) => tech !== techToDelete);
+
+        setTechList(newList);
+    }
+
+    function handleDone(id:number){
+        const newList = techList.map((tech) => {
+            if(tech.id === id){
+                const techDone = {
+                    ...tech,
+                    done: !tech.done
+                }
+
+                return techDone;
+            }
+
+            return tech;
+        })
+
+        setTechList(newList);
+    }
 
     return (
         <>
@@ -45,8 +73,8 @@ export default function TaskList(){
                     </div>
                 )}
 
-                {techList.map((tech, key=0) => (
-                    <Tech tech={tech} key={key+1}/>
+                {techList.map((tech) => (
+                    <Tech tech={tech} key={tech.id} id={tech.id} onRemove={handleRemove} onDone={handleDone}/>
                 ))}
             </div>
         </>
