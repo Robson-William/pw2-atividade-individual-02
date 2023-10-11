@@ -2,16 +2,16 @@ import trashCan from "/trashCan.svg";
 import "./styles.css";
 
 type IProps = {
-    tech:any,
+    tech: any,
     id: number,
-    onRemove:Function,
-    onDone:Function
+    onRemove: Function,
+    onDone: Function
 }
 
-export default function Tech({tech, id, onRemove, onDone}:IProps){
+export default function Tech({ tech, id, onRemove, onDone }: IProps) {
     return (
         <div className="card">
-            <input type="checkbox" onClick={() => {onDone(id)}} defaultChecked={tech.done}></input>
+            <input type="checkbox" onClick={() => { onDone(id) }} defaultChecked={tech.done}></input>
             <p className={tech.done ? "checked" : "without"}>
                 {tech.content}
             </p>
