@@ -17,6 +17,8 @@ export default function TaskList() {
     function handleAddTech() {
         const newList = techList.concat({ content: tech, id: uuidv4() });
 
+        setTech("");
+
         setTechList(newList);
     }
 
