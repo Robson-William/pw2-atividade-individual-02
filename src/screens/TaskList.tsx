@@ -5,7 +5,13 @@ import "./styles.css";
 import { useState } from "react";
 import Tech from "../components/Tech";
 
-const mockList = [
+interface Tech {
+    content: string,
+    done: boolean,
+    id: number
+}
+
+const mockList: Tech[] = [
     { content: "CSS", done: true, id: 0 },
     { content: "REACT", done: true, id: 1 },
     { content: "HTML", done: true, id: 2 },
@@ -13,20 +19,20 @@ const mockList = [
 ]
 
 export default function TaskList() {
-    const [techList, setTechList] = useState<Object[]>(mockList);
+    const [techList, setTechList] = useState<Tech[]>(mockList);
     const [tech, setTech] = useState("");
 
-    function handleAddTech(event) {
+    function handleAddTech(event: any) {
         event.preventDefault();
-        const newList = techList.concat({ content: tech, id: uuidv4() });
+        const newList: Tech[] = techList.concat({ content: tech, done: false, id: uuidv4() });
 
         setTech("");
 
         setTechList(newList);
     }
 
-    function handleRemove(techToDelete: string) {
-        const newList = techList.filter((tech) => tech !== techToDelete);
+    function handleRemove(id: number) {
+        const newList = techList.filter((tech) => tech.id !== id);
 
         setTechList(newList);
     }
@@ -80,18 +86,18 @@ export default function TaskList() {
                     </div>
                 </div>
 
-                <div id="list">
-                    {techList.length === 0 && (
+                {techList.length === 0 && (
+                    <div id="list">
                         <div id="warning-message">
                             <span>Você ainda não tem tecnologias cadastradas</span>
                             <span>Crie tecnologia e organize seus itens a fazer</span>
                         </div>
-                    )}
+                    </div>
+                )}
 
-                    {techList.map((tech) => (
-                        <Tech tech={tech} key={tech.id} id={tech.id} onRemove={handleRemove} onDone={handleDone} />
-                    ))}
-                </div>
+                {techList.map((tech) => (
+                    <Tech tech={tech} key={tech.id} id={tech.id} onRemove={handleRemove} onDone={handleDone} />
+                ))}
             </div>
         </>
     )

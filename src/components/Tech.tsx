@@ -1,11 +1,17 @@
 import trashCan from "/trashCan.svg";
 import "./styles.css";
 
+interface Tech {
+    content: string,
+    done: boolean,
+    id: number
+}
+
 type IProps = {
-    tech: any,
+    tech: Tech,
     id: number,
-    onRemove: Function,
-    onDone: Function
+    onRemove: (id: number) => void,
+    onDone: (id: number) => void
 }
 
 export default function Tech({ tech, id, onRemove, onDone }: IProps) {
@@ -15,7 +21,7 @@ export default function Tech({ tech, id, onRemove, onDone }: IProps) {
             <p className={tech.done ? "checked" : "without"}>
                 {tech.content}
             </p>
-            <button onClick={() => onRemove(tech)}><img src={trashCan} alt="Trash can"></img></button>
+            <button onClick={() => onRemove(id)}><img src={trashCan} alt="Trash can"></img></button>
         </div>
     )
 }
